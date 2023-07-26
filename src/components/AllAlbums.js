@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
+import { Counter } from "./Counter";
 
 export const AllAlbums = (props) => {
   const [albums, setAlbums] = useState([]);
@@ -28,9 +29,9 @@ export const AllAlbums = (props) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>User ID</TableCell>
-              <TableCell>id</TableCell>
+              <TableCell align="right">id</TableCell>
               <TableCell>Title</TableCell>
+              <TableCell align="right">Photos</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -39,14 +40,20 @@ export const AllAlbums = (props) => {
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  {row.userId}
+                <TableCell component="th" scope="row" align="right">
+                  {row.id}
                 </TableCell>
-                <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Link to={`/users/${row.userId}/albums/${row.id}/photos`}>
                     {row.title}
                   </Link>
+                </TableCell>
+                <TableCell align="right">
+                  <Counter
+                    url="https://jsonplaceholder.typicode.com/photos"
+                    idName="albumId"
+                    idNumber={row.id}
+                  />
                 </TableCell>
               </TableRow>
             ))}

@@ -17,6 +17,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { UserInfo } from "./UserInfo";
+import { Counter } from "./Counter";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -45,13 +46,13 @@ export const Users = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>UserID</TableCell>
+              <TableCell align="right">UserID</TableCell>
               <TableCell>Usename</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Phone</TableCell>
-              <TableCell>Posts</TableCell>
-              <TableCell>Todos</TableCell>
-              <TableCell>Albums</TableCell>
+              <TableCell align="right">Posts</TableCell>
+              <TableCell align="right">Todos</TableCell>
+              <TableCell align="right">Albums</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,20 +63,38 @@ export const Users = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 onClick={() => handleClickOpen(row.id)}
               >
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" align="right">
                   {row.id}
                 </TableCell>
                 <TableCell>{row.username}</TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.phone}</TableCell>
-                <TableCell>
-                  <Link to={`/users/${row.id}/posts`}>Posts</Link>
+                <TableCell align="right">
+                  <Link to={`/users/${row.id}/posts`}>
+                    <Counter
+                      url="https://jsonplaceholder.typicode.com/posts"
+                      idName="userId"
+                      idNumber={row.id}
+                    />
+                  </Link>
                 </TableCell>
-                <TableCell>
-                  <Link to={`/users/${row.id}/todos`}>Todos</Link>
+                <TableCell align="right">
+                  <Link to={`/users/${row.id}/todos`}>
+                    <Counter
+                      url="https://jsonplaceholder.typicode.com/todos"
+                      idName="userId"
+                      idNumber={row.id}
+                    />
+                  </Link>
                 </TableCell>
-                <TableCell>
-                  <Link to={`/users/${row.id}/albums`}>Albums</Link>
+                <TableCell align="right">
+                  <Link to={`/users/${row.id}/albums`}>
+                    <Counter
+                      url="https://jsonplaceholder.typicode.com/albums"
+                      idName="userId"
+                      idNumber={row.id}
+                    />
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}
