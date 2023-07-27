@@ -13,7 +13,7 @@ export const Albums = () => {
           <UserInfo id={id} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <AllAlbums id={id} />
+          <AllAlbums userId={id} />
         </Grid>
       </Grid>
     </>

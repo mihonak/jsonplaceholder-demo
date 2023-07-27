@@ -12,7 +12,7 @@ export const Counter = ({ url, idName, idNumber }) => {
       setAmount(data.filter((d) => d[idName] === idNumber).length);
     };
     getData();
-  }, [data]);
+  }, [data, url, idName, idNumber]);
 
   return <>{amount}</>;
 };

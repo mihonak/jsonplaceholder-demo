@@ -49,7 +49,6 @@ export const Users = () => {
               <TableCell align="right">UserID</TableCell>
               <TableCell>Usename</TableCell>
               <TableCell>Name</TableCell>
-              <TableCell>Phone</TableCell>
               <TableCell align="right">Posts</TableCell>
               <TableCell align="right">Todos</TableCell>
               <TableCell align="right">Albums</TableCell>
@@ -68,7 +67,6 @@ export const Users = () => {
                 </TableCell>
                 <TableCell>{row.username}</TableCell>
                 <TableCell>{row.name}</TableCell>
-                <TableCell>{row.phone}</TableCell>
                 <TableCell align="right">
                   <Link to={`/users/${row.id}/posts`}>
                     <Counter

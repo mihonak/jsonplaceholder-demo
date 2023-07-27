@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 
 export const AllPhotos = (props) => {
-  const { id, albumid } = useParams();
+  const { albumid } = useParams();
   const [photos, setPhotos] = useState([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState();
@@ -47,9 +47,9 @@ export const AllPhotos = (props) => {
   return (
     <>
       <ImageList>
-        <ImageListItem key="Subheader" cols={8}>
-          <ListSubheader component="div">
-            userid: {id}, {albumTitle}
+        <ImageListItem key="Subheader" cols={4}>
+          <ListSubheader component="h4">
+            Album Title: {albumTitle}
           </ListSubheader>
         </ImageListItem>
         {photos.map((item) => (
