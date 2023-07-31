@@ -5,7 +5,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ListSubheader from "@mui/material/ListSubheader";
-import { useParams } from "react-router-dom";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
 
 import {
   Button,
@@ -13,29 +13,23 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  IconButton,
 } from "@mui/material";
 
-export const AllPhotos = (props) => {
-  const { albumid } = useParams();
+export const AllPhotos = ({ id, title }) => {
   const [photos, setPhotos] = useState([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState();
-  const [albumTitle, setAlbumTitle] = useState("");
 
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
         "https://jsonplaceholder.typicode.com/photos"
       );
-      setPhotos(res.data.filter((d) => d.albumId === Number(albumid)));
-
-      const getAlbum = await axios.get(
-        `https://jsonplaceholder.typicode.com/albums/${albumid}`
-      );
-      setAlbumTitle(getAlbum.data.title);
+      setPhotos(res.data.filter((d) => d.albumId === Number(id)));
     };
     getData();
-  }, [albumid]);
+  }, [id, title]);
 
   const handleClickOpen = (item) => {
     setPhoto(photos.filter((photo) => photo.id === item.id)[0]);
@@ -48,24 +42,33 @@ export const AllPhotos = (props) => {
     <>
       <ImageList>
         <ImageListItem key="Subheader" cols={4}>
-          <ListSubheader component="h4">
-            Album Title: {albumTitle}
-          </ListSubheader>
+          <ListSubheader component="h4">Album Title: {title}</ListSubheader>
         </ImageListItem>
         {photos.map((item) => (
-          <ImageListItem key={item.id} onClick={() => handleClickOpen(item)}>
+          <ImageListItem key={item.id}>
             <img
               src={`${item.url}?w=600&h=600&fit=crop&auto=format`}
               srcSet={`${item.thumbnailUrl}?w=150&h=150&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
             />
-            <ImageListItemBar title={item.title} />
+            <ImageListItemBar
+              title={item.title}
+              actionIcon={
+                <IconButton
+                  sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                  aria-label={`zoom up this photo`}
+                  onClick={() => handleClickOpen(item)}
+                >
+                  <ZoomInIcon />
+                </IconButton>
+              }
+            />
           </ImageListItem>
         ))}
       </ImageList>
       {photo && (
-        <Dialog open={open}>
+        <Dialog open={open} onClose={handleClose}>
           <DialogTitle>{photo.title}</DialogTitle>
           <DialogContent>
             <img

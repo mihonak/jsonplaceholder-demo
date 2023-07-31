@@ -1,11 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Users } from "../components/Users";
 import { Home } from "../Home";
-import { Posts } from "../Posts";
-import { Todos } from "../Todos";
-import { Albums } from "../Albums";
-import { Photos } from "../Photos";
 import { Comments } from "../components/Comments";
+import { User } from "../User";
 
 export const Router = () => {
   return (
@@ -13,10 +10,7 @@ export const Router = () => {
       <Route path={"/"} element={<Home />} />
       <Route path={"/comments"} element={<Comments />} />
       <Route path={"/users"} element={<Users />} />
-      <Route path={"/users/:id/posts"} element={<Posts />} />
-      <Route path={"/users/:id/todos"} element={<Todos />} />
-      <Route path={"/users/:id/albums"} element={<Albums />} />
-      <Route path={"/users/:id/albums/:albumid/photos"} element={<Photos />} />
+      <Route path={"/user/:id"} element={<User />} />
     </Routes>
   );
 };

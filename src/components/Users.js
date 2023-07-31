@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,21 +8,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Typography,
-} from "@mui/material";
-import { UserInfo } from "./UserInfo";
+import { Typography } from "@mui/material";
+
 import { Counter } from "./Counter";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [user, setUser] = useState();
 
   useEffect(() => {
     const getData = async () => {
@@ -32,14 +22,6 @@ export const Users = () => {
     };
     getData();
   }, []);
-
-  const handleClickOpen = (id) => {
-    setOpen(true);
-    setUser(users.filter((user) => user.id === id)[0]);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <>
@@ -64,7 +46,9 @@ export const Users = () => {
                 hover
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                onClick={() => handleClickOpen(row.id)}
+                onClick={() => {
+                  window.location.href = `/user/${row.id}`;
+                }}
               >
                 <TableCell component="th" scope="row" align="right">
                   {row.id}
@@ -72,50 +56,31 @@ export const Users = () => {
                 <TableCell>{row.username}</TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell align="right">
-                  <Link to={`/users/${row.id}/posts`}>
-                    <Counter
-                      url="https://jsonplaceholder.typicode.com/posts"
-                      idName="userId"
-                      idNumber={row.id}
-                    />
-                  </Link>
+                  <Counter
+                    url="https://jsonplaceholder.typicode.com/posts"
+                    idName="userId"
+                    idNumber={row.id}
+                  />
                 </TableCell>
                 <TableCell align="right">
-                  <Link to={`/users/${row.id}/todos`}>
-                    <Counter
-                      url="https://jsonplaceholder.typicode.com/todos"
-                      idName="userId"
-                      idNumber={row.id}
-                    />
-                  </Link>
+                  <Counter
+                    url="https://jsonplaceholder.typicode.com/todos"
+                    idName="userId"
+                    idNumber={row.id}
+                  />
                 </TableCell>
                 <TableCell align="right">
-                  <Link to={`/users/${row.id}/albums`}>
-                    <Counter
-                      url="https://jsonplaceholder.typicode.com/albums"
-                      idName="userId"
-                      idNumber={row.id}
-                    />
-                  </Link>
+                  <Counter
+                    url="https://jsonplaceholder.typicode.com/albums"
+                    idName="userId"
+                    idNumber={row.id}
+                  />
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      {user && (
-        <Dialog open={open}>
-          <DialogTitle>User Infomation</DialogTitle>
-          <DialogContent>
-            <UserInfo id={user.id} />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} autoFocus>
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      )}
     </>
   );
 };

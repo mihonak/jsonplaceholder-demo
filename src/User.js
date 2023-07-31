@@ -1,22 +1,24 @@
 import { useParams } from "react-router-dom";
 
-import { UserInfo } from "./components/UserInfo";
-import { AllAlbums } from "./components/AllAlbums";
 import { Grid, Typography } from "@mui/material";
 
-export const Albums = () => {
+import { UserInfo } from "./components/UserInfo";
+import { BasicTabs } from "./components/BasicTabs";
+
+export const User = () => {
   const { id } = useParams();
+
   return (
     <>
       <Typography variant="h3" gutterBottom>
-        Users
+        User
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <UserInfo id={id} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <AllAlbums userId={id} />
+          <BasicTabs id={id} />
         </Grid>
       </Grid>
     </>

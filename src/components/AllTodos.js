@@ -19,7 +19,7 @@ export const AllTodos = (props) => {
       setTodos(res.data.filter((d) => d.userId === Number(props.id)));
     };
     getData();
-  }, []);
+  }, [props.id]);
   return (
     <>
       <TableContainer component={Paper}>
@@ -27,7 +27,7 @@ export const AllTodos = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>Completed</TableCell>
-              <TableCell>User ID</TableCell>
+              <TableCell>ID</TableCell>
               <TableCell>Title</TableCell>
             </TableRow>
           </TableHead>
@@ -41,7 +41,7 @@ export const AllTodos = (props) => {
                   <Checkbox color="primary" checked={row.completed} />
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {row.userId}
+                  {row.id}
                 </TableCell>
                 <TableCell>{row.title}</TableCell>
               </TableRow>

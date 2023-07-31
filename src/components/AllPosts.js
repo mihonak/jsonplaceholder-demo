@@ -18,14 +18,14 @@ export const AllPosts = (props) => {
       setPosts(res.data.filter((d) => d.userId === Number(props.id)));
     };
     getData();
-  }, []);
+  }, [props.id]);
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>User ID</TableCell>
+              <TableCell>ID</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Body</TableCell>
             </TableRow>
@@ -37,7 +37,7 @@ export const AllPosts = (props) => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.userId}
+                  {row.id}
                 </TableCell>
                 <TableCell>{row.title}</TableCell>
                 <TableCell>{row.body}</TableCell>

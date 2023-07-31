@@ -34,6 +34,9 @@ export const Comments = (props) => {
       <Typography variant="h3" gutterBottom>
         Comments
       </Typography>
+      <Stack spacing={2} alignItems="center" mt={2} mb={2}>
+        <Pagination count={100} page={page} onChange={handleChange} />
+      </Stack>
       <Typography variant="h5" gutterBottom>
         PostID {page}
       </Typography>
