@@ -15,6 +15,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Typography,
 } from "@mui/material";
 import { UserInfo } from "./UserInfo";
 import { Counter } from "./Counter";
@@ -42,6 +43,9 @@ export const Users = () => {
 
   return (
     <>
+      <Typography variant="h3" gutterBottom>
+        Users
+      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

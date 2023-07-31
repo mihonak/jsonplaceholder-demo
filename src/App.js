@@ -4,12 +4,15 @@ import "./App.css";
 
 import { Router } from "./router/Router";
 import ButtonAppBar from "./components/Appbar";
+import { Container } from "@mui/material";
 
 function App() {
   return (
     <BrowserRouter>
       <ButtonAppBar />
-      <Router />
+      <Container>
+        <Router />
+      </Container>
     </BrowserRouter>
   );
 }
