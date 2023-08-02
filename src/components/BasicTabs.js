@@ -4,9 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { useParams } from "react-router-dom";
-import { AllPosts } from "./AllPosts";
-import { AllTodos } from "./AllTodos";
-import { AllAlbums } from "./AllAlbums";
+import { PostList } from "./PostList";
+import { TodoList } from "./TodoList";
+import { AlbumList } from "./AlbumList";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,13 +60,13 @@ export function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <AllPosts id={id} />
+        <PostList id={id} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <AllTodos id={id} />
+        <TodoList id={id} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <AllAlbums userId={id} />
+        <AlbumList userId={id} />
       </CustomTabPanel>
     </Box>
   );

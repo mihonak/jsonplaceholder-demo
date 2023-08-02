@@ -9,10 +9,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { AlbumPicker } from "./AlbumPicker";
-import { AllPhotos } from "./AllPhotos";
+import { PhotoList } from "./PhotoList";
 import { Button, Stack } from "@mui/material";
 
-export const AllAlbums = ({ userId }) => {
+export const AlbumList = ({ userId }) => {
   const [albums, setAlbums] = useState([]);
   const [album, setAlbum] = useState();
 
@@ -38,7 +38,7 @@ export const AllAlbums = ({ userId }) => {
               Go Back To Album List
             </Button>
           </Stack>
-          <AllPhotos id={album.id} title={album.title} />
+          <PhotoList id={album.id} title={album.title} />
         </>
       ) : (
         <TableContainer component={Paper}>

@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export const Comments = (props) => {
+export const CommentList = (props) => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = React.useState(1);
 
@@ -31,9 +31,6 @@ export const Comments = (props) => {
   }, [page]);
   return (
     <>
-      <Typography variant="h3" gutterBottom>
-        Comments
-      </Typography>
       <Stack spacing={2} alignItems="center" mt={2} mb={2}>
         <Pagination count={100} page={page} onChange={handleChange} />
       </Stack>

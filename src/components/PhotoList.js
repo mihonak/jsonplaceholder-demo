@@ -16,7 +16,7 @@ import {
   IconButton,
 } from "@mui/material";
 
-export const AllPhotos = ({ id, title }) => {
+export const PhotoList = ({ id, title }) => {
   const [photos, setPhotos] = useState([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState();

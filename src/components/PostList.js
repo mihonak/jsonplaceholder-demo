@@ -8,42 +8,39 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Checkbox } from "@mui/material";
 
-export const AllTodos = (props) => {
-  const [todos, setTodos] = useState([]);
+export const PostList = (props) => {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
-      setTodos(res.data.filter((d) => d.userId === Number(props.id)));
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPosts(res.data.filter((d) => d.userId === Number(props.id)));
     };
     getData();
   }, [props.id]);
   return (
     <>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Completed</TableCell>
               <TableCell>ID</TableCell>
               <TableCell>Title</TableCell>
+              <TableCell>Body</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {todos.map((row) => (
+            {posts.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell padding="checkbox">
-                  <Checkbox color="primary" checked={row.completed} />
-                </TableCell>
                 <TableCell component="th" scope="row">
                   {row.id}
                 </TableCell>
                 <TableCell>{row.title}</TableCell>
+                <TableCell>{row.body}</TableCell>
               </TableRow>
             ))}
           </TableBody>

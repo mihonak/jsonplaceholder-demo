@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { Users } from "../components/Users";
 import { Home } from "../Home";
-import { Comments } from "../components/Comments";
+import { Users } from "../Users";
 import { User } from "../User";
+import { Comments } from "../Comments";
 
 export const Router = () => {
   return (
