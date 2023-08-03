@@ -16,7 +16,7 @@ import {
   IconButton,
 } from "@mui/material";
 
-export const PhotoList = ({ id, title }) => {
+export const PhotoList = ({ albumId, title }) => {
   const [photos, setPhotos] = useState([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState();
@@ -24,12 +24,12 @@ export const PhotoList = ({ id, title }) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/photos?albumId=${id}`
+        `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`
       );
       setPhotos(res.data);
     };
     getData();
-  }, [id, title]);
+  }, [albumId, title]);
 
   const handleClickOpen = (item) => {
     setPhoto(photos.filter((photo) => photo.id === item.id)[0]);

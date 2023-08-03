@@ -38,7 +38,7 @@ export const AlbumList = ({ userId }) => {
               Go Back To Album List
             </Button>
           </Stack>
-          <PhotoList id={album.id} title={album.title} />
+          <PhotoList albumId={album.id} title={album.title} />
         </>
       ) : (
         <TableContainer component={Paper}>

@@ -40,7 +40,7 @@ function a11yProps(index) {
 export function BasicTabs() {
   const [value, setValue] = React.useState(0);
 
-  const { id } = useParams();
+  const { userId } = useParams();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,13 +60,13 @@ export function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <PostList id={id} />
+        <PostList userId={userId} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <TodoList id={id} />
+        <TodoList userId={userId} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <AlbumList userId={id} />
+        <AlbumList userId={userId} />
       </CustomTabPanel>
     </Box>
   );
