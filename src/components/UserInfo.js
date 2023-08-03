@@ -23,7 +23,7 @@ export const UserInfo = (props) => {
       setUser(res.data);
     };
     getData();
-  }, []);
+  }, [props.id]);
 
   return (
     <>
