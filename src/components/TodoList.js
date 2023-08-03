@@ -10,16 +10,18 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Checkbox } from "@mui/material";
 
-export const TodoList = (props) => {
+export const TodoList = ({ id }) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
-      setTodos(res.data.filter((d) => d.userId === Number(props.id)));
+      const res = await axios.get(
+        `https://jsonplaceholder.typicode.com/todos?userId=${id}`
+      );
+      setTodos(res.data);
     };
     getData();
-  }, [props.id]);
+  }, [id]);
   return (
     <>
       <TableContainer component={Paper}>

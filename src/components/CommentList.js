@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export const CommentList = (props) => {
+export const CommentList = () => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = React.useState(1);
 
@@ -23,9 +23,9 @@ export const CommentList = (props) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/comments"
+        `https://jsonplaceholder.typicode.com/comments?postId=${page}`
       );
-      setPosts(res.data.filter((d) => d.postId === page));
+      setPosts(res.data);
     };
     getData();
   }, [page]);

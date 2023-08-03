@@ -12,18 +12,18 @@ import BusinessIcon from "@mui/icons-material/Business";
 import ListItemContent from "@mui/joy/ListItemContent";
 import { Home, Mail, OpenInNew, Person, Phone, Web } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-export const UserInfo = (props) => {
+export const UserInfo = ({ id }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${props.id}`
+        `https://jsonplaceholder.typicode.com/users/${id}`
       );
       setUser(res.data);
     };
     getData();
-  }, [props.id]);
+  }, [id]);
 
   return (
     <>

@@ -24,9 +24,9 @@ export const PhotoList = ({ id, title }) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/photos"
+        `https://jsonplaceholder.typicode.com/photos?albumId=${id}`
       );
-      setPhotos(res.data.filter((d) => d.albumId === Number(id)));
+      setPhotos(res.data);
     };
     getData();
   }, [id, title]);

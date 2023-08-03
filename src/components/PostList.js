@@ -9,16 +9,18 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-export const PostList = (props) => {
+export const PostList = ({ id }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-      setPosts(res.data.filter((d) => d.userId === Number(props.id)));
+      const res = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts?userId=${id}`
+      );
+      setPosts(res.data);
     };
     getData();
-  }, [props.id]);
+  }, [id]);
   return (
     <>
       <TableContainer component={Paper}>

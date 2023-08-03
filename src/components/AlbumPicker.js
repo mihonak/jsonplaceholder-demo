@@ -8,9 +8,9 @@ export const AlbumPicker = ({ albumId }) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/photos"
+        `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`
       );
-      setPhotos(res.data.filter((d) => d.albumId === albumId));
+      setPhotos(res.data);
     };
     getData();
   }, [albumId]);

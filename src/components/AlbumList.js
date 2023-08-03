@@ -19,9 +19,9 @@ export const AlbumList = ({ userId }) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/albums"
+        `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
       );
-      setAlbums(res.data.filter((d) => d.userId === Number(userId)));
+      setAlbums(res.data);
     };
     getData();
   }, [userId]);
