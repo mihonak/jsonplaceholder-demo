@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const Counter = ({ url, idName, idNumber }) => {
   const [data, setData] = useState([]);

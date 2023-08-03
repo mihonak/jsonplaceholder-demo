@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import * as React from "react";
+
+import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,7 +14,7 @@ import Stack from "@mui/material/Stack";
 
 export const CommentList = () => {
   const [posts, setPosts] = useState([]);
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
 
   const handleChange = (event, value) => {
     setPage(value);

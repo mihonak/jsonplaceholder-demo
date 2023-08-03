@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import * as React from "react";
+
+import axios from "axios";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,9 +8,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button, Stack } from "@mui/material";
+
 import { AlbumPicker } from "./AlbumPicker";
 import { PhotoList } from "./PhotoList";
-import { Button, Stack } from "@mui/material";
 
 export const AlbumList = ({ userId }) => {
   const [albums, setAlbums] = useState([]);

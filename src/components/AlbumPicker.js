@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+
 import { Avatar, AvatarGroup } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export const AlbumPicker = ({ albumId }) => {
   const [photos, setPhotos] = useState([]);
