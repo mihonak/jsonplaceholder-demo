@@ -36,46 +36,74 @@ export const UserInfo = (props) => {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <Person />
               </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h5">Fullname</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Fullname
+              </Typography>
               <Typography>{user.name}</Typography>
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <Phone />
               </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h5">Phone</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Phone
+              </Typography>
               <Typography>{user.phone}</Typography>
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <Mail />
               </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h5">Email</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Email
+              </Typography>
               <Typography>{user.email}</Typography>
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <Web />
               </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h5">Website</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Website
+              </Typography>
               <Typography>
                 <Link>
                   {user.website}
@@ -85,13 +113,20 @@ export const UserInfo = (props) => {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <Home />
               </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h5">Address</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Address
+              </Typography>
               <Typography>{user.address.zipcode}</Typography>
               <Typography>
                 {user.address.suite}, {user.address.street}, {user.address.city}
@@ -99,13 +134,20 @@ export const UserInfo = (props) => {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar sx={{ display: { xs: "none", md: "flex" } }}>
               <Avatar>
                 <BusinessIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemContent>
-              <Typography variant="h5">Company</Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 24 },
+                  borderBottom: { xs: 1, md: "none" },
+                }}
+              >
+                Company
+              </Typography>
               <Typography>{user.company.name}</Typography>
               <Typography>{user.company.catchPhrase}</Typography>
               <Typography>{user.company.bs}</Typography>
