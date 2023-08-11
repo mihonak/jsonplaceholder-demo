@@ -23,7 +23,7 @@ export const CommentList = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/comments?postId=${page}`
+        `http://${window.location.hostname}:3003/comments?postId=${page}`
       );
       setPosts(res.data);
     };

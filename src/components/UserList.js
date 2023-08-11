@@ -16,7 +16,9 @@ export const UserList = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      const res = await axios.get(
+        `http://${window.location.hostname}:3003/users`
+      );
       setUsers(res.data);
     };
     getData();
@@ -52,22 +54,14 @@ export const UserList = () => {
                 <TableCell>{row.username}</TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell align="right">
-                  <Counter
-                    url="https://jsonplaceholder.typicode.com/posts"
-                    idName="userId"
-                    idNumber={row.id}
-                  />
+                  <Counter resource="posts" idName="userId" idNumber={row.id} />
+                </TableCell>
+                <TableCell align="right">
+                  <Counter resource="todos" idName="userId" idNumber={row.id} />
                 </TableCell>
                 <TableCell align="right">
                   <Counter
-                    url="https://jsonplaceholder.typicode.com/todos"
-                    idName="userId"
-                    idNumber={row.id}
-                  />
-                </TableCell>
-                <TableCell align="right">
-                  <Counter
-                    url="https://jsonplaceholder.typicode.com/albums"
+                    resource="albums"
                     idName="userId"
                     idNumber={row.id}
                   />

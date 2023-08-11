@@ -16,7 +16,7 @@ export const TodoList = ({ userId }) => {
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/todos?userId=${userId}`
+        `http://${window.location.hostname}:3003/todos?userId=${userId}`
       );
       setTodos(res.data);
     };
