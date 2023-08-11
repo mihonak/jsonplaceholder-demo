@@ -28,7 +28,7 @@ export const Home = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button href="/Users" startIcon={<PeopleIcon />}>
+              <Button href="/users" startIcon={<PeopleIcon />}>
                 Users
               </Button>
             </CardActions>
