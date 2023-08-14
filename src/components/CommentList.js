@@ -24,7 +24,7 @@ export const CommentList = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/comments?postId=${page}`
+          `https://jsonplaceholder.typicode.com/comments?postId=${page}`
         );
         setPosts(res.data);
       } catch (error) {
