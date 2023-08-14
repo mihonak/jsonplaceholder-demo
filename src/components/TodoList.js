@@ -17,7 +17,7 @@ export const TodoList = ({ userId }) => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/todos?userId=${userId}`
+          `https://jsonplaceholder.typicode.com/todos?userId=${userId}`
         );
         setTodos(res.data);
       } catch (error) {

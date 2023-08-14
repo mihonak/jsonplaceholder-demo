@@ -21,7 +21,7 @@ export const AlbumList = ({ userId }) => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/albums?userId=${userId}`
+          `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
         );
         setAlbums(res.data);
       } catch (error) {

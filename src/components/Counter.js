@@ -8,7 +8,7 @@ export const Counter = ({ resource, idName, idNumber }) => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/${resource}?${idName}=${idNumber}`
+          `https://jsonplaceholder.typicode.com/${resource}?${idName}=${idNumber}`
         );
         setAmount(res.data.length);
       } catch (error) {

@@ -10,7 +10,7 @@ export const AlbumPicker = ({ albumId }) => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/photos?albumId=${albumId}`
+          `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`
         );
         setPhotos(res.data);
       } catch (error) {

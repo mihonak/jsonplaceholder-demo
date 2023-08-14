@@ -18,7 +18,7 @@ export const UserList = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/users`
+          `https://jsonplaceholder.typicode.com/users`
         );
         setUsers(res.data);
       } catch (error) {

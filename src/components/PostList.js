@@ -16,7 +16,7 @@ export const PostList = ({ userId }) => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://${window.location.hostname}:3003/posts?userId=${userId}`
+          `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
         );
         setPosts(res.data);
       } catch (error) {
