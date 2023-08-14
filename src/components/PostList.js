@@ -14,10 +14,14 @@ export const PostList = ({ userId }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `http://${window.location.hostname}:3003/posts?userId=${userId}`
-      );
-      setPosts(res.data);
+      try {
+        const res = await axios.get(
+          `http://${window.location.hostname}:3003/posts?userId=${userId}`
+        );
+        setPosts(res.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, [userId]);

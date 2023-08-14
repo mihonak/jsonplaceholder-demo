@@ -47,7 +47,7 @@ export const Home = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button href="/Comments" startIcon={<MessageIcon />}>
+              <Button href="/comments" startIcon={<MessageIcon />}>
                 Comments
               </Button>
             </CardActions>

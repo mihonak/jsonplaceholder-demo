@@ -6,10 +6,14 @@ export const Counter = ({ resource, idName, idNumber }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `http://${window.location.hostname}:3003/${resource}?${idName}=${idNumber}`
-      );
-      setAmount(res.data.length);
+      try {
+        const res = await axios.get(
+          `http://${window.location.hostname}:3003/${resource}?${idName}=${idNumber}`
+        );
+        setAmount(res.data.length);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, [resource, idName, idNumber]);

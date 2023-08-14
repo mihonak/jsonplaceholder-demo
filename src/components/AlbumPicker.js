@@ -8,10 +8,14 @@ export const AlbumPicker = ({ albumId }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `http://${window.location.hostname}:3003/photos?albumId=${albumId}`
-      );
-      setPhotos(res.data);
+      try {
+        const res = await axios.get(
+          `http://${window.location.hostname}:3003/photos?albumId=${albumId}`
+        );
+        setPhotos(res.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, [albumId]);

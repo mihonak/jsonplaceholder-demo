@@ -22,10 +22,14 @@ export const CommentList = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `http://${window.location.hostname}:3003/comments?postId=${page}`
-      );
-      setPosts(res.data);
+      try {
+        const res = await axios.get(
+          `http://${window.location.hostname}:3003/comments?postId=${page}`
+        );
+        setPosts(res.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, [page]);

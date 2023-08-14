@@ -19,10 +19,14 @@ export const UserInfo = ({ userId }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `http://${window.location.hostname}:3003/users/${userId}`
-      );
-      setUser(res.data);
+      try {
+        const res = await axios.get(
+          `http://${window.location.hostname}:3003/users/${userId}`
+        );
+        setUser(res.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getData();
   }, [userId]);
