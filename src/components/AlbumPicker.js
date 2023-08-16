@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Avatar, AvatarGroup } from "@mui/material";
 import axios from "axios";
 
+import { EndPoint } from "./GlobalValues";
+
 export const AlbumPicker = ({ albumId }) => {
   const [photos, setPhotos] = useState([]);
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`
-        );
+        const res = await axios.get(`${origin}/photos?albumId=${albumId}`);
         setPhotos(res.data);
       } catch (error) {
         console.error(error);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import Table from "@mui/material/Table";
@@ -9,16 +9,16 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Checkbox } from "@mui/material";
+import { EndPoint } from "./GlobalValues";
 
 export const TodoList = ({ userId }) => {
   const [todos, setTodos] = useState([]);
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/todos?userId=${userId}`
-        );
+        const res = await axios.get(`${origin}/todos?userId=${userId}`);
         setTodos(res.data);
       } catch (error) {
         console.error(error);

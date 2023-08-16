@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import Table from "@mui/material/Table";
@@ -12,17 +12,17 @@ import { Button, Stack } from "@mui/material";
 
 import { AlbumPicker } from "./AlbumPicker";
 import { PhotoList } from "./PhotoList";
+import { EndPoint } from "./GlobalValues";
 
 export const AlbumList = ({ userId }) => {
   const [albums, setAlbums] = useState([]);
   const [album, setAlbum] = useState();
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
-        );
+        const res = await axios.get(`${origin}/albums?userId=${userId}`);
         setAlbums(res.data);
       } catch (error) {
         console.error(error);

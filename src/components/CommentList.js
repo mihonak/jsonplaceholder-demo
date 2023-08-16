@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import Table from "@mui/material/Table";
@@ -11,10 +11,12 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { EndPoint } from "./GlobalValues";
 
 export const CommentList = () => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
+  const origin = useContext(EndPoint);
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -23,9 +25,7 @@ export const CommentList = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/comments?postId=${page}`
-        );
+        const res = await axios.get(`${origin}/comments?postId=${page}`);
         setPosts(res.data);
       } catch (error) {
         console.error(error);

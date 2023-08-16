@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import ImageList from "@mui/material/ImageList";
@@ -14,18 +14,18 @@ import {
   DialogTitle,
   IconButton,
 } from "@mui/material";
+import { EndPoint } from "./GlobalValues";
 
 export const PhotoList = ({ albumId, title }) => {
   const [photos, setPhotos] = useState([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState();
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`
-        );
+        const res = await axios.get(`${origin}/photos?albumId=${albumId}`);
         setPhotos(res.data);
       } catch (error) {
         console.error(error);

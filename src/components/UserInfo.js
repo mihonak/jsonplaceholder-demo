@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import {
@@ -14,15 +14,16 @@ import ListItemContent from "@mui/joy/ListItemContent";
 import { Home, Mail, OpenInNew, Person, Phone, Web } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
+import { EndPoint } from "./GlobalValues";
+
 export const UserInfo = ({ userId }) => {
   const [user, setUser] = useState();
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/users/${userId}`
-        );
+        const res = await axios.get(`${origin}/users/${userId}`);
         setUser(res.data);
       } catch (error) {
         console.error(error);

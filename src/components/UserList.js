@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import axios from "axios";
 import Table from "@mui/material/Table";
@@ -10,16 +10,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 import { Counter } from "./Counter";
+import { EndPoint } from "./GlobalValues";
 
 export const UserList = () => {
   const [users, setUsers] = useState([]);
+  const origin = useContext(EndPoint);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/users`
-        );
+        const res = await axios.get(`${origin}/users`);
         setUsers(res.data);
       } catch (error) {
         console.error(error);
