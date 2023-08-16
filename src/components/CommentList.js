@@ -38,14 +38,13 @@ export const CommentList = () => {
       <Stack spacing={2} alignItems="center" mt={2} mb={2}>
         <Pagination count={100} page={page} onChange={handleChange} />
       </Stack>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="body1" component="h2" gutterBottom>
         PostID {page}
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>PostID</TableCell>
               <TableCell>ID</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>E-mail</TableCell>
@@ -59,9 +58,8 @@ export const CommentList = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.postId}
+                  {row.id}
                 </TableCell>
-                <TableCell>{row.id}</TableCell>
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.body}</TableCell>
