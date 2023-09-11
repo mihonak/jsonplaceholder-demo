@@ -24,7 +24,7 @@ export const PostList = ({ userId }) => {
       }
     };
     getData();
-  }, [userId]);
+  }, [userId, origin]);
   return (
     <>
       <TableContainer component={Paper}>

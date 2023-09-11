@@ -30,7 +30,7 @@ export const UserInfo = ({ userId }) => {
       }
     };
     getData();
-  }, [userId]);
+  }, [userId, origin]);
 
   return (
     <>

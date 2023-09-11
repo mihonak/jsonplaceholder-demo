@@ -32,7 +32,7 @@ export const PhotoList = ({ albumId, title }) => {
       }
     };
     getData();
-  }, [albumId, title]);
+  }, [albumId, title, origin]);
 
   const handleClickOpen = (item) => {
     setPhoto(photos.filter((photo) => photo.id === item.id)[0]);

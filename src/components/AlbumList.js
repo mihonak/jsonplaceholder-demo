@@ -29,7 +29,7 @@ export const AlbumList = ({ userId }) => {
       }
     };
     getData();
-  }, [userId]);
+  }, [userId, origin]);
   return (
     <>
       {album ? (

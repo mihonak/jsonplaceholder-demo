@@ -19,7 +19,7 @@ export const AlbumPicker = ({ albumId }) => {
       }
     };
     getData();
-  }, [albumId]);
+  }, [albumId, origin]);
 
   return (
     <>

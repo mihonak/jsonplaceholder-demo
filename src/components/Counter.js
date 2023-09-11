@@ -18,7 +18,7 @@ export const Counter = ({ resource, idName, idNumber }) => {
       }
     };
     getData();
-  }, [resource, idName, idNumber]);
+  }, [resource, idName, idNumber, origin]);
 
   return <>{amount}</>;
 };

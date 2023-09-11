@@ -25,7 +25,7 @@ export const TodoList = ({ userId }) => {
       }
     };
     getData();
-  }, [userId]);
+  }, [userId, origin]);
   return (
     <>
       <TableContainer component={Paper}>

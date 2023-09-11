@@ -26,7 +26,7 @@ export const UserList = () => {
       }
     };
     getData();
-  }, []);
+  }, [origin]);
 
   return (
     <>

@@ -32,7 +32,7 @@ export const CommentList = () => {
       }
     };
     getData();
-  }, [page]);
+  }, [page, origin]);
   return (
     <>
       <Stack spacing={2} alignItems="center" mt={2} mb={2}>
